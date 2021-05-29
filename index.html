@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid Tracker</title>
+    <link rel="stylesheet" href="./css/homePage.css">
+</head>
+<body>
+ 
+    <!-- title -->
+    <!-- Hello -->
+ 
+    <div class="topTitles">
+        <h1 class="title">Covid-19 Corona Virus Tracker</h1>
+        <h3 class="lastUpdate">Last Updated on:  </h3>
+    </div>
+  
+    <!-- nav-bar -->
+
+    <div class="leftNavBar">
+        <div class="logo">
+            <img src="./assets/covid_icon.png" alt="">
+        </div>
+        <div class="vaccineDiv">
+            <a href="./slot.html"><img src="./assets/vaccine.png" alt=""></a>
+            <h5>Vaccine Slots</h5>
+        </div>
+    </div>
+ 
+    <!-- cases bar -->
+ 
+    <div class="cases">
+        <div class="total">
+            <p class="heading">Total cases</p>
+            <span class="total_cases">00</span>
+        </div>
+        <div class="active">
+            <p class="heading">Active cases</p>
+            <span class="active_Cases_number">00</span>
+        </div>
+        <div class="recovered">
+            <p class="heading">Recovered cases</p>
+            <span class="recovered_Cases_number">00</span>
+        </div>
+        <div class="death">
+            <p class="heading">Deceased</p>
+            <span class="death_Cases_number">00</span>
+        </div>
+    </div>
+
+    <!-- graph div -->
+
+    <p class="note"> <span>Note:</span>  Please reload the page in order to plot a new chart</p>
+
+    <div class="graphArea">
+        <div class="toolTipAlert">
+            Please enter 31 days only.We will add more days to the graph in next update.
+        </div>
+        <div class="top">
+            
+            <img src="./assets/alert.svg" alt="" class="alert">
+            
+            <h4 class="graphlabel">Covid India Graph</h4>
+            <!-- <div>Covid Chart of India</div> -->
+            <input type="date" name="" id="date1">
+            <p class="startTime">Start Date</p>
+            <input type="date" name="" id="date2">
+            <p class="startTime">End Date</p>
+            <button class="btn">Make Chart</button>
+            <button type="submit" class="reload" onclick="clearElement()"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"> <path d="M2.5 2v6h6M21.5 22v-6h-6"/><path d="M22 11.5A10 10 0 0 0 3.2 7.2M2 12.5a10 10 0 0 0 18.8 4.2"/></svg></button>
+        </div>
+        <canvas id="myChart"> </canvas>
+    </div>
+
+    <!-- search div -->
+    <h6>Hit enter to search</h6>
+    <div class="searchInput">
+        <input type="text" placeholder="Search city and press enter" onkeyup="searchPlace()" id="place">
+        <img src="./assets/search.svg" alt="" class="searchImg" onclick="getCovid()">
+    </div>
+    <div class="toolTip">
+        <ul class="stateList">
+                
+        </ul>
+    </div>
+    <!-- search box with states in it -->
+    <div class="search_box">
+        <div class="search_heading">
+            Current Cases in: 
+        </div>
+
+
+        <div class="no" style="display: none;">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Andaman and Nicobar Island</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div> 
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Andaman and Nicobar Island</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Andhra Pradesh</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Arunachal Pradesh</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Assam</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Bihar</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Chandigarh</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Chhattisgarh</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Dadra</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Delhi</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Goa</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Gujarat</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Haryana</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Himachal Pradesh</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Jammu and Kashmir</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Jharkhand</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Karnataka</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Kerala</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Ladakh</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Lakshadweep</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Madhya Pradesh</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Maharashtra</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Manipur</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Meghalaya</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Mizoram</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Nagaland</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Odisha</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Puducherry</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Punjab</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Rajasthan</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Sikkim</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+        
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">state Unassigned</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Tamil Nadu</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Telangana</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Tripura</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Uttarpradesh</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">Uttarakhand</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+
+        <div class="stateDiv">
+            <input type="radio" name="category" class="radio">
+
+            <div class="left">
+                <div class="state_name">West Bengal</div>
+                
+            </div>
+            <div class="right">
+                <div class="casesNumberState">
+                    123,123
+                </div>
+            </div>
+        </div>
+</div>
+    <script defer src="./js/chart.js"></script>
+    <script defer src="./js/homePageChart.js"></script>
+    <script defer src="./js/homePage.js"></script>
+</body>
+</html>

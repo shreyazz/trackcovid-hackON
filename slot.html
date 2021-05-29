@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid Slot</title>
+    <link rel="stylesheet" href="./css/slot.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left_bar">
+            <a href="./index.html"><img src="./assets/covid_icon.png" alt="" class="logo"></a>
+            <div class="vaccineDiv">
+                <a href="./slot.html"><img src="./assets/vaccine.png" alt=""></a>
+                <h5>Vaccine Slots</h5>
+            </div>
+        </div>
+        <div class="right_container">
+            <h1 class="heading">Covid-19 Vaccine Slot Checker</h1>
+            <p class="sub-heading">Search by District</p>
+            <div class="search_box">
+                <div id="state_name_box">Select State
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="rgba(0, 0, 0, 0.29)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                </div>
+                <div id="district_name_box">Select District
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="rgba(0, 0, 0, 0.29)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                </div>
+                <button type="submit" class="btn" id="clear">Search</button>
+                <button type="submit" class="reload" onclick="clearElement()"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"> <path d="M2.5 2v6h6M21.5 22v-6h-6"/><path d="M22 11.5A10 10 0 0 0 3.2 7.2M2 12.5a10 10 0 0 0 18.8 4.2"/></svg></button>
+            </div>
+            <div class="toolTip">
+                <ul class="districtList">
+                        
+                </ul>
+            </div>
+            <div class="toolTip_new">
+                <ul class="stateList">
+                        
+                </ul>
+            </div>
+            <div class="filter">
+                <!-- <div class="box ei" onclick="ei()">Age 18+</div>
+                <div class="box fo" onclick="fo()">Age 45+</div>
+                <div class="box covishield" onclick="covisheild_new()">Covishield</div>
+                <div class="box covaxin" onclick="covaxin_new()">Covaxin</div>
+                <div class="box free" onclick="free_new()">Free</div>
+                <div class="box paid" onclick="paid_new()">Paid</div> -->
+                <input type="date" name="" id="day">
+            </div>
+            <div class="note">
+                <span>Note:</span>
+                <p class="inner-note">&nbsp; Always remember to refresh the page in order to make a new search.</p>
+            </div>
+            <div class="search_result_container">
+                <div class="header">
+                    <p class="name">Hospital Name</p>
+                    <p class="avaiabilty">Avaiabilty</p>
+                    <p class="vaccine">Vaccine</p>
+                    <p class="age">Age</p>
+                    <p class="fee_type">Fee Type</p>
+                </div>    
+                <div class="slot_result"></div>                              
+            </div>
+        </div>
+    </div>
+    <script src="./js/slot.js"></script>
+</body>
+</html>
