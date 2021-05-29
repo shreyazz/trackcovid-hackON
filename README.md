@@ -3,10 +3,10 @@
 This is a covid and vaccine availability tracker website which is made by me and my friend Sumeet Yadav, for a hackathon (HackON 2.0).
 
 ## Languages and Libraries we used:
-1.) HTML5
-2.) CSS3
-3.) JavaScript
-4.) Chart.JS
+1.) HTML5 <br>
+2.) CSS3 <br>
+3.) JavaScript  <br>
+4.) Chart.JS  <br>
 
 ## How to use:
 1.) Search for a city and then hit enter, and the website will fetch the data for you. <br>
