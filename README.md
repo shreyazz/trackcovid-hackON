@@ -1,6 +1,6 @@
 # trackcovid-hackON
 
-This is a covid and vaccine availability tracker website which is made by me and my friend Sumeet Yadav, for a hackathon (HackON 2.0).
+This is a covid and vaccine availability tracker website which is made by me and my team mate Sumeet Yadav, for a hackathon (HackON 2.0).
 
 ## Languages and Libraries we used:
 1.) HTML5 <br>
